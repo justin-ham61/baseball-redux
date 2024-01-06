@@ -1,0 +1,21 @@
+.one-player-main{
+    border-color: blue;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    gap: .5em;
+}
+
+.no-player-chosen{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graph{
+    width: 100%;
+}

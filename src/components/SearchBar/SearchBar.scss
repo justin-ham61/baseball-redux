@@ -1,0 +1,19 @@
+input{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    height: 50px;
+    border-style: none;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    background-color: rgb(240, 240, 240);
+}
+
+.filled{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.empty{
+    border-radius: 50px;
+}

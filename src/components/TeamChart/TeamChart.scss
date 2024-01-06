@@ -1,0 +1,14 @@
+.chart-header-team{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title{
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        img{
+            height: 100px;
+        }
+    }
+}

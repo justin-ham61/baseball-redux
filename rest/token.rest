@@ -1,0 +1,6 @@
+POST http://localhost:3001/users/authtoken
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImppaGVvbi5oYW02MUBnbWFpbC5jb20iLCJpZCI6IjY1NzEyOWE4ZWJmYmE1YmZhOTUxYzgxOCIsIm5hbWUiOiJKdXN0aW4gSGFtIiwiaWF0IjoxNzAxOTk3MTkxLCJleHAiOjE3MDIwMDA3OTF9.hZTJ_4sL8rHzMzlbqoHGejmdrqEgZchiYEvE9kWtILA"
+}

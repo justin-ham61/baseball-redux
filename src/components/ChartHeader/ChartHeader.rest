@@ -1,0 +1,7 @@
+POST http://localhost:3001/users/favoriteplayers
+Content-Type: application/json
+
+{
+    "userId": '1',
+    "playerId": 660271
+}
