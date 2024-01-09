@@ -19,6 +19,7 @@ interface Props {
 }
 
 const CareerStatTableSection = ({currentPlayerCareerStats, involvedGameType, setSeasonType, seasonType, error, statTypeState}:Props) => {
+  console.log(involvedGameType)
   return (
     <>
       <ChartGameLogOptions statTypeState={statTypeState} involvedGameType={involvedGameType} setSeasonType={setSeasonType} seasonType={seasonType} />

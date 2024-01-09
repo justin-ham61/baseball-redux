@@ -35,18 +35,24 @@ const HeroNav = ({setAuthType}: Props) => {
     }
   }
 
-  return (
-    <div className="nav-bar">
-      {!user.logged ? 
-        <button onClick={handleClick} value='in'>Sign in</button>
-        :
-        <>
-          <p>Hello, {user.name}!  </p>
-          <button onClick={handleClick} value='out'>Sign out</button>
-        </>
-      }
-    </div>
-  )
+  if (user !== null) {
+    return (
+      <div className="nav-bar">
+        {!user.logged ? 
+          <button onClick={handleClick} value='in'>Sign in</button>
+          :
+          <>
+            <p>Hello, {user.name}!  </p>
+            <button onClick={handleClick} value='out'>Sign out</button>
+          </>
+        }
+      </div>
+    )
+  } else {
+    return (
+      <></>
+    )
+  }
 }
 
 export default HeroNav

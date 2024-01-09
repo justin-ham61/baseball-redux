@@ -9,6 +9,7 @@ const connectDB = require('./database/database')
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static('dist'))
 //Connect to MongoDB
 connectDB()
 
@@ -19,11 +20,10 @@ app.use('/users', userRouter)
 
 
 app.get('/', (request, response) => {
-  addUser()
   response.send('<h1>Hello World!</h1>')
 })
 
-const PORT = 3001
+const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

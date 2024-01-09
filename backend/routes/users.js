@@ -53,8 +53,12 @@ userRouter.post('/authtoken', async(req, res) => {
 userRouter.get('/favoriteplayers/:token', async(req, res) => {
   const token = req.params.token
   const user = await userMethods.authenticateToken(token)
-  const favoritePlayers = await userMethods.getFavoritePlayers(user.id)
-  res.status(200).send(favoritePlayers)
+  if(user === undefined){
+    res.status(200).send([])
+  } else {
+    const favoritePlayers = await userMethods.getFavoritePlayers(user.id)
+    res.status(200).send(favoritePlayers)
+  }
 })
 
 userRouter.post('/favoriteplayers', async(req, res) => {

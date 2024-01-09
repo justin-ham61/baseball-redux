@@ -21,7 +21,7 @@ interface type{
 
 
 const ChartGameLogOptions = ({statTypeState, involvedGameType, setSeasonType, seasonType}:Props) => {
-
+  console.log(involvedGameType)
   const handleChange = (e: React.FormEvent<HTMLSelectElement>):void => {
     const type = e.currentTarget.value
     setSeasonType(type)

@@ -64,6 +64,7 @@ const OnePlayerChart = () => {
           })
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           .then((response:any) => {
+            console.log(response.data.people[0])
             const totalArray = setStatCategories(response.data.people[0])
             setInvolvedGameType(totalArray)
           })
@@ -81,12 +82,14 @@ const OnePlayerChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setStatCategories = (playerInfo: any) => {
     const splitArray = playerInfo.stats[6].splits
+    console.log(splitArray)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const playerSplits:any = {}
     const totalArray = ['P']
-    splitArray.map((split: { gameType: string; season: string | number }) => {
+    splitArray.map((split: { gameType: string; season: string }) => {
       if(type[split.gameType as keyof Type] !== null){
-        if(playerSplits[split.season] === null){
+        console.log(playerSplits[split.season] + 'HELLOOOOOO')
+        if(playerSplits[split.season] === undefined){
           playerSplits[split.season] = [split.gameType]
         } else {
           playerSplits[split.season].push(split.gameType)
