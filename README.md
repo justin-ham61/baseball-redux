@@ -10,14 +10,16 @@ Welcome to the Baseball Stats Charter, a dynamic web application designed to vis
 - **Responsive Design**: A fully responsive web design for a seamless experience on any device.
 
 ## Technologies Used
-- ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react) React (with TypeScript)
-- ![Redux](https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux) Redux
-- ![React Query](https://img.shields.io/badge/-React_Query-FF4154?style=flat-square&logo=react-query) React Query
-- ![SCSS](https://img.shields.io/badge/-SCSS-CC6699?style=flat-square&logo=sass) SCSS
-- ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs) Node.js
-- ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express) Express
-- ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb) MongoDB
-- ![Chart.js](https://img.shields.io/badge/-Chart.js-FF6384?style=flat-square&logo=chartdotjs) Chart.js
+
+- <img src="https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react" alt="React"/> React (with TypeScript)
+- <img src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux" alt="Redux"/> Redux
+- <img src="https://img.shields.io/badge/-React_Query-FF4154?style=flat-square&logo=react-query" alt="React Query"/> React Query
+- <img src="https://img.shields.io/badge/-SCSS-CC6699?style=flat-square&logo=sass" alt="SCSS"/> SCSS
+- <img src="https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs" alt="Node.js"/> Node.js
+- <img src="https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express" alt="Express"/> Express
+- <img src="https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb" alt="MongoDB"/> MongoDB
+- <img src="https://img.shields.io/badge/-Chart.js-FF6384?style=flat-square&logo=chartdotjs" alt="Chart.js"/> Chart.js
+
 
 
 ## Getting Started
