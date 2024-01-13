@@ -11,14 +11,17 @@ Welcome to the Baseball Stats Charter, a dynamic web application designed to vis
 
 ## Technologies Used
 
-- <img src="https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react" alt="React"/> React (with TypeScript)
-- <img src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux" alt="Redux"/> Redux
-- <img src="https://img.shields.io/badge/-React_Query-FF4154?style=flat-square&logo=react-query" alt="React Query"/> React Query
-- <img src="https://img.shields.io/badge/-SCSS-CC6699?style=flat-square&logo=sass" alt="SCSS"/> SCSS
-- <img src="https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs" alt="Node.js"/> Node.js
-- <img src="https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express" alt="Express"/> Express
-- <img src="https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb" alt="MongoDB"/> MongoDB
-- <img src="https://img.shields.io/badge/-Chart.js-FF6384?style=flat-square&logo=chartdotjs" alt="Chart.js"/> Chart.js
+- ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) 
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+- ![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+- ![React Query](https://img.shields.io/badge/-ReactQuery-FF4154?style=for-the-badge)
+- ![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+- ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white)
+- ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+- ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white)
+
+
 
 
 
