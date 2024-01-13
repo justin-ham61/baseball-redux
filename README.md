@@ -11,68 +11,52 @@ Welcome to the Baseball Stats Charter, a dynamic web application designed to vis
 
 ## Technologies Used
 
-- ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) 
-- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-- ![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
-- ![React Query](https://img.shields.io/badge/-ReactQuery-FF4154?style=for-the-badge)
-- ![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-- ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white)
-- ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
-- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-- ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![React Query](https://img.shields.io/badge/-ReactQuery-FF4154?style=for-the-badge)
+![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white)
 
-
-
-
-
-## Getting Started
-(Provide instructions on how to set up and run your project locally)
-
-## Screenshots
-(You can add images of your application here. Use the following syntax to add images)
-
-![Alt text](url_to_image)
-*Caption for the image*
 
 ## Usage
 ### User Authentication
-(Describe the login and signup functionalities with screenshots)
 
-![Login Page](url_to_image)
+![Home Page](https://private-user-images.githubusercontent.com/109255423/296519419-d848b909-e88e-432b-8d1d-0bbd53770885.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDE5LWQ4NDhiOTA5LWU4OGUtNDMyYi04ZDFkLTBiYmQ1Mzc3MDg4NS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jYmJlYjY5OWVkZGVkYWU1NDM2M2IxY2VhYmMyNzI0YjBiYzkxZGE5MTgzYzFiMTUxMDgzOWY1YzRmM2I1Yzg1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.IeUA4TQY1tXFJEHR0xeBaxdaTPyf5fwL_gh5xROX5B8)
 *Login Page*
 
-![Signup Page](url_to_image)
+![Login Page](https://private-user-images.githubusercontent.com/109255423/296519425-380db38a-1a65-4a98-8251-9e11a17cd28e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDI1LTM4MGRiMzhhLTFhNjUtNGE5OC04MjUxLTllMTFhMTdjZDI4ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNDc1MTY2OWUxZTE5OWM2ZTk3ODIzODg4MmZiNGVmOGM3OGZjZjM0YzFjOWFjNjFmOTIwOGZmODY0NzY2MjRhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.t7VFaYTU2HAoyLn47ZTZhMIHztCoo_HmMJuKco3D47o)
+*Login Page*
+
+![Signup Page](https://private-user-images.githubusercontent.com/109255423/296519429-bce9675f-03f6-45d0-b062-d2c7540f79b6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDI5LWJjZTk2NzVmLTAzZjYtNDVkMC1iMDYyLWQyYzc1NDBmNzliNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hZDYzNmU2MzY0MjFkMDZkNGIyNTllNzFhZWMxYTU1ZDIwNzM0ZWNhNDRiZTlmYjU1YzJjNzk3MmYxZWE2NWI5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.gJlkqbRgR3DBtubPJ9CWynAj87rmNYwHxN5IYFj555g)
 *Signup Page*
 
-### Favorite Players
-(Explain how users can select and view their favorite players, with screenshots)
 
-![Favorite Players](url_to_image)
+![Player Search](https://private-user-images.githubusercontent.com/109255423/296519431-b885c67b-9a63-4f2e-9dec-de1ab2fe9861.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDMxLWI4ODVjNjdiLTlhNjMtNGYyZS05ZGVjLWRlMWFiMmZlOTg2MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT02ZDRjOGYzZDRlZTE1NDQxNjI0MDczN2Y5MGNhODIzNGNiMTFhYmYyNDU2YTYyZGRmZjJiNjVjMmI3MDNlZmQ4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.uHNdO4M5TrrWHj1KUZUl-UncOzpAqNa6gysTkazEXZM)
+*Player Search*
+
+
+
+### Favorite Players
+Users can select favorite players by clicking the star next to the Player's name at the top of the page. Once a player has been favorited, they will appear in the user's favorite players section which can then be used to quickly change the selected player quickly.
+
+![Favorite Players](https://private-user-images.githubusercontent.com/109255423/296519436-ab633a98-30d3-4410-9f1a-82c8fb3dadec.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDM2LWFiNjMzYTk4LTMwZDMtNDQxMC05ZjFhLTgyYzhmYjNkYWRlYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wOGM0ODI0MzQ0OTMwNDliNTY0MmM2OTE1NmEyODFhYzZkZTlkOGJkN2IwZWU2Y2QxYzdmMmU2OGI3NTU2OGVjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.-QbJqeqUz4DnwK6qQ3FHSg6CvNUjJIjp3wpBHFIzWQE)
 *Managing Favorite Players*
 
 ### Stats Visualization
-(Detail how the app visualizes stats using Chart.js, with examples)
+Selecting a player to chart will bring up a season stat graph of the player's AVG, SLG, OPS. The chart configuration menu allows the user to change to other stats such as hits, home runs, RBI, and etc which are aggregate type of data. 
 
-![Player Stats](url_to_image)
+![Player Stats](https://private-user-images.githubusercontent.com/109255423/296519433-21550c50-8d6f-4aec-a3da-a2eec45a6a46.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDMzLTIxNTUwYzUwLThkNmYtNGFlYy1hM2RhLWEyZWVjNDVhNmE0Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iOGQwZDc0ZjZlZDUxZjg4NjYzNzUxYmI3MmUyN2ZiNTQzZjEzNmE2YzRlN2VlYjcwNGJjYmM0ZTU3NTQ5MmU2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.RogszpzEdWZVEkqzWfj1QsoIuzHKsixD6e4clKienzc)
 *Player Statistics Graph*
 
 ### Comparing Players
-(Describe the feature to compare different players’ stats)
+Users can add players useing the search function to select which players they want to compare. The user can select which type of stat to compare as well as season.
 
-![Compare Players](url_to_image)
+![Compare Players](https://private-user-images.githubusercontent.com/109255423/296519435-032a5a8c-1d98-4004-b0ae-820ca0036768.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDM1LTAzMmE1YThjLTFkOTgtNDAwNC1iMGFlLTgyMGNhMDAzNjc2OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZDcxYWI2OTYwZWJlNzE3NWJhNTc4NTI3Yzg1NzYyNTJjOTA5ZDY4ZGI2YzlhOGNiODU0YjhmMWQ3NWVhMjZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.44hqz8GUOFrYyafRjqHNwf8hywSqJxzjef5Hhx7NjEM)
 *Comparing Player Stats*
-
-## API Reference
-(If applicable, provide details about the MLBstats API endpoints used)
-
-## Contributions
-(Information on how others can contribute to your project)
-
-## License
-(Include details about the project's license, if applicable)
-
-## Contact
-(Your contact information or links to your social media)
 
 ---
 
