@@ -1,4 +1,10 @@
 .chart-menu{
+    @media screen and (max-width: 768px){
+      position: absolute;
+      z-index: 1;
+      display: none;
+      margin-top: 40px;
+    }
     width: 100%;
     height: 100%;
     background-color: white;
@@ -6,6 +12,30 @@
     grid-template-rows: 4fr 1fr;
     overflow: auto;
 }
+
+.show{
+  display: grid;
+}
+
+.hidden{
+  display: none;
+}
+
+.mobile-menu-collapsed{
+  @media screen and (max-width: 768px){
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+} 
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  background-color: #f2f2f2;
+  z-index: 2;
+  display: none;
+}
+
 
 .chart-menu-main{
     display: flex;

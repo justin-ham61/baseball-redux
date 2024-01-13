@@ -2,17 +2,20 @@ import './Hero.scss'
 import SearchBar from '../SearchBar/SearchBar'
 import HeroNav from '../HeroNav/HeroNav'
 import Registration from '../Registration/Registration'
-import { useState } from 'react'
+import { useRef, useState} from 'react'
 import Login from '../Login/Login'
 import { useSelector } from 'react-redux'
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '../Loading/Loading'
 import { State } from '../../type/stateType'
-
+import { useOutsideClickDetection } from '../../hooks/useOutsideClickDetection'
 const Hero = () => {
   const [authType, setAuthType] = useState<string>('')
   const loading = useSelector((state:State) => state.loading)
+  const wrapperRef = useRef(null)
+  useOutsideClickDetection(wrapperRef, authType, setAuthType)
+
   /*  const popularPlayers = [
     {
       name: 'Bryce Harper',
@@ -54,10 +57,16 @@ const Hero = () => {
       })
   } */
 
+
+
+  const handleGithubClick = () => {
+    window.open('https://github.com/justin-ham61/baseball-redux', '_blank', 'noreferrer')
+  }
+
   return (
     <>
       <HeroNav setAuthType={setAuthType}/>
-      <div className='body'>
+      <div className='body' ref={wrapperRef} >
         {loading ? <Loading/> :
           <>
             <div className='background'></div>
@@ -86,7 +95,7 @@ const Hero = () => {
         }
       </div>
       <div className='footer'>
-        <FontAwesomeIcon icon={faSquareGithub}/>
+        <FontAwesomeIcon icon={faSquareGithub} onClick={handleGithubClick}/>
       </div>
     </>
   )

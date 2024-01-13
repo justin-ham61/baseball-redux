@@ -8,7 +8,7 @@ import { buildComparePlayerDataset } from '../../util/charts'
 import { teamPlayerStatKeys } from '../../util/constants'
 
 interface Props{
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   selectedTeam: any
 }
 const TeamChart = ({selectedTeam}:Props) => {

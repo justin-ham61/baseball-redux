@@ -5,7 +5,7 @@ import { Line } from 'react-chartjs-2'
 import { buildComparePlayerDataset } from '../../util/charts'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 import { defaultSeason } from '../../util/constants'
 import { State } from '../../type/stateType'
 import * as React from 'react'

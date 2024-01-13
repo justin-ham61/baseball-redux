@@ -31,7 +31,7 @@ const userSlice = createSlice({
 })
 
 export const initializeAuth = (token:string): ThunkAction<void, State, null, AnyAction> => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   return async (dispatch: Dispatch): Promise<void> => {
     const user:UserPayLoad | null = await loginUserWithToken(token)
     dispatch(setUser(user))

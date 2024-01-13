@@ -25,7 +25,7 @@ const ChartBox = ({selectedTeam}:Props) => {
           : 
           category === 'team' ? 
             <TeamChart selectedTeam={selectedTeam}/>
-            :
+            : 
             null
       }
     </div>

@@ -13,94 +13,97 @@ const CareerStatTable = ({currentPlayerCareerStats, error, statTypeState}:Props)
 
   if (!error && statTypeState.statType === 'hitting'){
     return (
-      <table className='stat-table'>
-        <tr>
-          <th>Season</th>
-          <th>Team</th>
-          <th>LG</th>
-          <th><p>G</p></th>
-          {hittingStatKeys.map((item, i) => {
-            return(
-              <th key={i}><p id={item.fullName}>{item.abbreviation}</p></th>
-            )
+
+      <div className='stat-table-section'>
+        <table className='stat-table'>
+          <tr>
+            <th>Season</th>
+            <th>Team</th>
+            <th>LG</th>
+            <th><p>G</p></th>
+            {hittingStatKeys.map((item, i) => {
+              return(
+                <th key={i}><p id={item.fullName}>{item.abbreviation}</p></th>
+              )
+            })}
+          </tr>
+          {currentPlayerCareerStats.map((item: { team: { abbreviation: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; league: { abbreviation: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined } }; season: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; stat: { [x: string]: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; gamesPlayed: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined } }, i:number) => {
+            if(item.team)
+              return(
+                <tr key={i}>
+                  <td className='year'>{item.season}</td>
+                  <td>{item.team.abbreviation}</td>
+                  <td>{item.team.league.abbreviation}</td>
+                  <td>{item.stat.gamesPlayed}</td>
+                  {hittingStatKeys.map((key, i) => {
+                    return(
+                      <td key={i}>{item.stat[key.api]}</td>
+                    )
+                  })}
+                </tr>
+              )
           })}
-        </tr>
-        {currentPlayerCareerStats.map((item: { team: { abbreviation: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; league: { abbreviation: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined } }; season: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; stat: { [x: string]: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; gamesPlayed: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined } }, i:number) => {
-          if(item.team)
-            return(
-              <tr key={i}>
-                <td className='year'>{item.season}</td>
-                <td>{item.team.abbreviation}</td>
-                <td>{item.team.league.abbreviation}</td>
-                <td>{item.stat.gamesPlayed}</td>
-                {hittingStatKeys.map((key, i) => {
-                  return(
-                    <td key={i}>{item.stat[key.api]}</td>
-                  )
-                })}
-              </tr>
-            )
-        })}
-        <tr>
-          <td className='year'>Career Total</td>
-          <td> - - </td>
-          <td> - - </td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { gamesPlayed: string } }) => {
-            return accumulator + parseInt(currentItem.stat.gamesPlayed)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { atBats: string } }) => {
-            return accumulator + parseInt(currentItem.stat.atBats)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { runs: string } }) => {
-            return accumulator + parseInt(currentItem.stat.runs)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { hits: string } }) => {
-            return accumulator + parseInt(currentItem.stat.hits)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { totalBases: string } }) => {
-            return accumulator + parseInt(currentItem.stat.totalBases)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { doubles: string } }) => {
-            return accumulator + parseInt(currentItem.stat.doubles)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { triples: string } }) => {
-            return accumulator + parseInt(currentItem.stat.triples)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { homeRuns: string } }) => {
-            return accumulator + parseInt(currentItem.stat.homeRuns)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { rbi: string } }) => {
-            return accumulator + parseInt(currentItem.stat.rbi)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { baseOnBalls: string } }) => {
-            return accumulator + parseInt(currentItem.stat.baseOnBalls)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { intentionalWalks: string } }) => {
-            return accumulator + parseInt(currentItem.stat.intentionalWalks)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { strikeOuts: string } }) => {
-            return accumulator + parseInt(currentItem.stat.strikeOuts)
-          }, 0)}</td>
-          <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { caughtStealing: string } }) => {
-            return accumulator + parseInt(currentItem.stat.caughtStealing)
-          }, 0)}</td>
-          <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { avg: string } }) => {
-            return accumulator + parseFloat(currentItem.stat.avg)
-          }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
-          <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { obp: string } }) => {
-            return accumulator + parseFloat(currentItem.stat.obp)
-          }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
-          <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { slg: string } }) => {
-            return accumulator + parseFloat(currentItem.stat.slg)
-          }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
-          <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { ops: string } }) => {
-            return accumulator + parseFloat(currentItem.stat.ops)
-          }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
-          <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { groundOutsToAirouts: string } }) => {
-            return accumulator + parseFloat(currentItem.stat.groundOutsToAirouts)
-          }, 0)/currentPlayerCareerStats.length).toFixed(2)}</td>
-        </tr>
-      </table>
+          <tr>
+            <td className='year'>Career Total</td>
+            <td> - - </td>
+            <td> - - </td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { gamesPlayed: string } }) => {
+              return accumulator + parseInt(currentItem.stat.gamesPlayed)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { atBats: string } }) => {
+              return accumulator + parseInt(currentItem.stat.atBats)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { runs: string } }) => {
+              return accumulator + parseInt(currentItem.stat.runs)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { hits: string } }) => {
+              return accumulator + parseInt(currentItem.stat.hits)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { totalBases: string } }) => {
+              return accumulator + parseInt(currentItem.stat.totalBases)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { doubles: string } }) => {
+              return accumulator + parseInt(currentItem.stat.doubles)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { triples: string } }) => {
+              return accumulator + parseInt(currentItem.stat.triples)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { homeRuns: string } }) => {
+              return accumulator + parseInt(currentItem.stat.homeRuns)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { rbi: string } }) => {
+              return accumulator + parseInt(currentItem.stat.rbi)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { baseOnBalls: string } }) => {
+              return accumulator + parseInt(currentItem.stat.baseOnBalls)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { intentionalWalks: string } }) => {
+              return accumulator + parseInt(currentItem.stat.intentionalWalks)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { strikeOuts: string } }) => {
+              return accumulator + parseInt(currentItem.stat.strikeOuts)
+            }, 0)}</td>
+            <td>{currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { caughtStealing: string } }) => {
+              return accumulator + parseInt(currentItem.stat.caughtStealing)
+            }, 0)}</td>
+            <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { avg: string } }) => {
+              return accumulator + parseFloat(currentItem.stat.avg)
+            }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
+            <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { obp: string } }) => {
+              return accumulator + parseFloat(currentItem.stat.obp)
+            }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
+            <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { slg: string } }) => {
+              return accumulator + parseFloat(currentItem.stat.slg)
+            }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
+            <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { ops: string } }) => {
+              return accumulator + parseFloat(currentItem.stat.ops)
+            }, 0)/currentPlayerCareerStats.length).toFixed(3).toString().replace(/^0+/, '')}</td>
+            <td>{(currentPlayerCareerStats.reduce((accumulator:number, currentItem: { stat: { groundOutsToAirouts: string } }) => {
+              return accumulator + parseFloat(currentItem.stat.groundOutsToAirouts)
+            }, 0)/currentPlayerCareerStats.length).toFixed(2)}</td>
+          </tr>
+        </table>
+      </div>
     )
   } else if (!error && statTypeState.statType === 'fielding') {
     return(
@@ -140,9 +143,11 @@ const CareerStatTable = ({currentPlayerCareerStats, error, statTypeState}:Props)
               </tr>
             )
           }
+          
         })}
-
       </table>
+
+
     )
   } else {
     return(

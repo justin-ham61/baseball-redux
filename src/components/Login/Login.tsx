@@ -7,6 +7,7 @@ import { setUser } from '../../reducers/userReducer'
 import { setLoading } from '../../reducers/loadingReducer'
 import { useQueryClient } from '@tanstack/react-query'
 import { State } from '../../type/stateType'
+import './Login.scss'
 
 interface Form{
     email:string
@@ -72,6 +73,14 @@ const Login = ( {onClick}: Props ) => {
     setForm({...form, captcha: token})
   }
 
+  const handleGuestLogin = () => {
+    setForm({
+      ...form,
+      email: 'guestaccount@mlbchart.com',
+      password: 'guest1234'
+    })
+  }
+
   return (
     <>
       {!loading ? 
@@ -80,7 +89,10 @@ const Login = ( {onClick}: Props ) => {
           <input id='email' type="email" placeholder="Email" onChange={handleChange} value={form.email}/>
           <input id='password' type="password" placeholder="Password" minLength={8} onChange={handleChange} value={form.password}/>
           <ReCAPTCHA sitekey='6LcJSSYpAAAAAEncYCQa3abX7aKpWWRslSc6OY8v' onChange={handleCaptcha}/>
-          <button>Login</button>
+          <div className='button-bar'>
+            <button onClick={handleGuestLogin} type='button'>Guest Login</button>
+            <button type='submit'>Login</button>
+          </div>
           <p onClick={() => onClick('register')}>Don't have an account? Register!</p>
         </form>
         :

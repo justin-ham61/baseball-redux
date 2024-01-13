@@ -1,5 +1,10 @@
 
 .chart-box{
+    @media screen and (max-width: 768px) {
+        height: 92%;
+        padding: .5em;
+        width: 96%;
+    }
     align-self: center;
     justify-self: center;
     background-color: white;

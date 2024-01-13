@@ -92,7 +92,13 @@ export const loginUserWithToken = async (token:string):Promise<UserPayload | nul
     return user
   } catch (error){
     console.log(error)
-    return null
+    return ({
+      logged:false,
+      name: '',
+      id: '',
+      email:'',
+      favoritePlayers:[]
+    })
   }
 }
 

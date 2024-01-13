@@ -44,6 +44,7 @@ const Graph = ({season, currentPlayerId, chartOption, checkbox}:Props) => {
     fetchYearData(currentPlayerId, season)
   },[season, currentPlayerId])
 
+
   useEffect(() => {
     console.log(checkbox)
     
@@ -75,7 +76,7 @@ const Graph = ({season, currentPlayerId, chartOption, checkbox}:Props) => {
 
   return(
     <>
-      {graphData !== null ? <Line data={graphData} key={chartOption.chartOptionCategory}/> : null }
+      {graphData !== null ? <Line data={graphData}  key={chartOption.chartOptionCategory}/> : null }
     </>
   )
 }

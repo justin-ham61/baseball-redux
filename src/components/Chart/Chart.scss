@@ -1,11 +1,18 @@
 .chart{
+    @media screen and (max-width: 768px){
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    @media screen and (min-width: 768px){
+      display: grid;
+      grid-template-columns: 2fr 8fr;
+    }
     width: 100vw;
     height: 100vh;
     background-size: 300%;
     background-image: linear-gradient(61deg, rgba(135,149,255,1) 11%, rgba(251,111,181,1) 71%, rgba(251,111,181,1) 100%);
     animation: AnimateBG1 5s ease infinite;
-    display: grid;
-    grid-template-columns: 2fr 8fr;
 }
 
 .favorite-player-overlay{
