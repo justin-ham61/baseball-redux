@@ -25,7 +25,7 @@ Welcome to the Baseball Stats Charter, a dynamic web application designed to vis
 ## Usage
 ### User Authentication
 
-![Home Page](![image](https://github.com/justin-ham61/baseball-redux/assets/109255423/ebf2fbf7-0484-4456-a9ff-36880d26c245))
+![Home Page](https://github.com/justin-ham61/baseball-redux/assets/109255423/ebf2fbf7-0484-4456-a9ff-36880d26c245)
 *Login Page*
 
 ![Login Page](https://private-user-images.githubusercontent.com/109255423/296519425-380db38a-1a65-4a98-8251-9e11a17cd28e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxODc3OTQsIm5iZiI6MTcwNTE4NzQ5NCwicGF0aCI6Ii8xMDkyNTU0MjMvMjk2NTE5NDI1LTM4MGRiMzhhLTFhNjUtNGE5OC04MjUxLTllMTFhMTdjZDI4ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QyMzExMzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNDc1MTY2OWUxZTE5OWM2ZTk3ODIzODg4MmZiNGVmOGM3OGZjZjM0YzFjOWFjNjFmOTIwOGZmODY0NzY2MjRhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.t7VFaYTU2HAoyLn47ZTZhMIHztCoo_HmMJuKco3D47o)
