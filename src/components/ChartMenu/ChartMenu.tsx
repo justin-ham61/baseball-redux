@@ -36,7 +36,7 @@ const ChartMenu = ({setSelectedTeam, showFavoriteState, setAuthType}: Props) => 
   const user = useSelector((state:State) => state.user)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
-  const [showMobileMenu, setShowMobileMenu] = useState(0)
+  const [showMobileMenu, setShowMobileMenu] = useState<number>(0)
 
   const handleClick = (category:string) => {
     dispatch(setCategory(category))

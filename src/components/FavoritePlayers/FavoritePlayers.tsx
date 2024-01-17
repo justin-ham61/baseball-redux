@@ -8,6 +8,7 @@ import { setChoice } from '../../reducers/choiceReducer'
 import * as React from 'react'
 import { State } from '../../type/stateType'
 import { PlayerBase } from '../../type/PlayerBase'
+
 interface Props{
   showFavoriteState:{
     showFavoritePlayer: boolean,
@@ -31,8 +32,6 @@ const FavoritePlayers = ({showFavoriteState}: Props) => {
     dispatch(setChoice(player))
     showFavoriteState.setShowFavoritePlayer(false)
   }
-
-  console.log(players)
 
   return (
     <div className='favorite-player-box'>

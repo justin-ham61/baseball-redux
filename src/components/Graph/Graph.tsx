@@ -46,8 +46,6 @@ const Graph = ({season, currentPlayerId, chartOption, checkbox}:Props) => {
 
 
   useEffect(() => {
-    console.log(checkbox)
-    
     if(seasonStat === null){
       return
     }

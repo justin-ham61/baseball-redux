@@ -15,7 +15,7 @@ const ComparePlayersChart = () => {
   const [category, setCategory] = useState('avg')
   const [chartData, setChartData] = useState<any>(null)
   const [season, setSeason] = useState(defaultSeason)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<boolean>(false)
   const options:any = {
     scales: {
       x: {
@@ -38,7 +38,6 @@ const ComparePlayersChart = () => {
     fetchYearData()
     async function fetchYearData(){
       const data:any[] = []
-          
       await Promise.all(player.map(person => {
         try{
           return new Promise<void>((resolve, reject) => {

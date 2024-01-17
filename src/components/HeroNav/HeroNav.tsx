@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Dispatch, SetStateAction } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { signOutUser } from '../../util/auth'
 import { setUser } from '../../reducers/userReducer'
@@ -7,10 +6,8 @@ import { useQueryClient } from '@tanstack/react-query'
 import './HeroNav.scss'
 import { setLoading } from '../../reducers/loadingReducer'
 import { State } from '../../type/stateType'
+import { Props } from './props'
 
-type Props = {
-  setAuthType: Dispatch<SetStateAction<string>>
-}
 
 const HeroNav = ({setAuthType}: Props) => {
   const user = useSelector((state:State) => state.user)

@@ -20,8 +20,7 @@ const ChartHeader = ( {season, currentPlayer}:Props ) => {
   const queryClient = useQueryClient()
   const favoriteQueryState = queryClient.getQueryState(['favoritePlayers'])
 
-  console.log(favoriteQueryState)
-
+  //Mutation method when adding new favorite player
   const newFavoriteMutation = useMutation({
     mutationFn: addFavoritePlayerCall,
     onSuccess: () => {
@@ -29,7 +28,7 @@ const ChartHeader = ( {season, currentPlayer}:Props ) => {
     }
   })
 
-
+  
   const handleStarClick = () => {
     if(user.logged){
       newFavoriteMutation.mutate(currentPlayer.playerId)
@@ -37,7 +36,6 @@ const ChartHeader = ( {season, currentPlayer}:Props ) => {
       alert('You must be signed in to select favorite players')
     }
   }
-
 
   return (
     <div className='chart-header'>

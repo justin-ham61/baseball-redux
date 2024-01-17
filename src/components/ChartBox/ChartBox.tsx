@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import ComparePlayersChart from '../ComparePlayersChart/ComparePlayersChart'
 import OnePlayerChart from '../OnePlayerChart/OnePlayerChart'
@@ -13,9 +12,7 @@ interface Props{
 
 const ChartBox = ({selectedTeam}:Props) => {
   const category = useSelector((state: State) => state.category)
-  useEffect(() => {
-    console.log(category)
-  })
+
   return (
     <div className='chart-box'>
       {category === 'single' ? 
