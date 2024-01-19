@@ -35,7 +35,7 @@ function App() {
     dispatch(setFavoritePlayer(favoritePlayerResult.data))
   },[favoritePlayerResult, dispatch])
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     const socket = io('http://localhost:3001')
     socket.on('connection', () => {
       console.log('Connected to the socket.io server')

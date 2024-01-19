@@ -4,8 +4,8 @@ import './ChatWindow.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import io,{Socket} from 'socket.io-client'
-/* import { useSelector } from 'react-redux'
-import { State } from '../../../type/stateType' */
+import { useSelector } from 'react-redux'
+import { State } from '../../../type/stateType'
 
 interface Props {
   roomId: string | null,
@@ -21,14 +21,14 @@ interface Message{
 }
 
 const ChatWindow = ({roomId, selectedRoom}: Props) => {
-  //const user = useSelector((state:State) => state.user)
+  const user = useSelector((state:State) => state.user)
   const [ messages, setMessages ] = useState<Message[]>([])
   const [ scrollBehavior, setScrollBehavior ] = useState<ScrollBehavior>('auto')
   const [ messageContent, setMessageContent ] = useState<string>('')  
   const [ socket, setSocket ] = useState<Socket | null>(null)
   const bottomScrollRef = useRef<HTMLDivElement>(null)
   const maxLength: number = 100
-  const currentUser = 'Justin'
+  const currentUser = user.name
   useEffect(() => {
     const newSocket = io()
 
@@ -78,10 +78,10 @@ const ChatWindow = ({roomId, selectedRoom}: Props) => {
   }
 
   const sendMessageCall = () => {
-    /* if(!user.logged){
+    if(!user.logged){
       alert('You must be logged in to send messages')
-    } */
-    if(messageContent.length > 0 && socket){
+    }
+    if(messageContent.length > 0 && socket && user.logged){
       setMessageContent('')
       socket.emit('chat message', {room: roomId, msg: messageContent, userId: currentUser})
     }
