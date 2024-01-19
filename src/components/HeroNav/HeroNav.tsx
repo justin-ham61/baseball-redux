@@ -7,12 +7,14 @@ import './HeroNav.scss'
 import { setLoading } from '../../reducers/loadingReducer'
 import { State } from '../../type/stateType'
 import { Props } from './props'
+import { useNavigate } from 'react-router-dom'
 
 
 const HeroNav = ({setAuthType}: Props) => {
   const user = useSelector((state:State) => state.user)
   const dispatch = useDispatch()
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement
@@ -35,6 +37,7 @@ const HeroNav = ({setAuthType}: Props) => {
   if (user !== null) {
     return (
       <div className="nav-bar">
+        <button onClick={() => navigate('/Chat')}>Chat</button>
         {!user.logged ? 
           <button onClick={handleClick} value='in'>Sign in</button>
           :

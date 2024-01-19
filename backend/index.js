@@ -3,12 +3,13 @@ const app = express()
 const cors = require('cors')
 const connectDB = require('./database/database')
 const server = require('http').createServer(app)
+const chatMessageModel = require('./database/Chat/chatSchema')
 
 //middleware
 app.use(express.json())
 app.use(cors())
-
 app.use(express.static('dist'))
+
 //Connect to MongoDB
 connectDB()
 
@@ -17,7 +18,6 @@ const userRouter = require('./routes/users')
 const chatRouter = require('./routes/chat')
 app.use('/users', userRouter)
 app.use('/chat', chatRouter)
-
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
@@ -31,7 +31,7 @@ server.listen(PORT, () => {
 //socket
 const io = require('socket.io')(server,{
   cors:{
-    origin: 'http://localhost:5173',
+    origin: 'https://baseball-redux-backend-1db26d31a3ab.herokuapp.com/',
     method: ['GET', 'POST']
   }
 })
@@ -39,13 +39,23 @@ const io = require('socket.io')(server,{
 
 io.on('connection', (socket) => {
   console.log('a user connected')
+  socket.on('join room', async (room) => {
+    console.log(`a user has joined "${room}" room`)
+    socket.join(room)
+    const messages = await chatMessageModel.find({ roomId: room }).sort({ timestamp: 1 })
+    socket.emit('chat history', messages)
+  })
+
+  socket.on('chat message', async ({room, msg, userId}) => {
+    const timestamp = new Date()
+    const newMessage = new chatMessageModel({userId: userId, roomId: room, message: msg, timestamp: timestamp})
+    await newMessage.save()
+    console.log(msg)
+    io.to(room).emit('chat message', {userId: userId, roomId: room, message: msg, timestamp: timestamp})
+  })
+
   
   socket.on('disconnect', () => {
     console.log('user disconnected')
-  })
-
-  socket.on('chat message', (msg) => {
-    console.log(msg)
-    io.emit('chat message', msg)
   })
 })

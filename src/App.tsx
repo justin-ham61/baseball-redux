@@ -1,6 +1,7 @@
 import { useEffect} from 'react'
 import Hero from './components/Hero/Hero'
 import Chart from './components/Chart/Chart'
+import ChatHero from './components/Chat/ChatHero/ChatHero'
 import './App.css'
 import './index.css'
 import { Route, Routes, BrowserRouter as Router} from 'react-router-dom'
@@ -9,7 +10,6 @@ import { initializeAuth, setFavoritePlayer } from './reducers/userReducer'
 import { useDispatch} from 'react-redux'
 import { useQuery } from '@tanstack/react-query'
 import { getFavoritePlayerCall } from './util/query'
-import io from 'socket.io-client'
 
 
 
@@ -52,7 +52,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <Hero/>} />
           <Route path='/Chart' element={ <Chart/> } />
-          <Route path='/Chat' element= {<></>}/>
+          <Route path='/Chat' element= {<ChatHero/>}/>
         </Routes>
       </Router>
     </>

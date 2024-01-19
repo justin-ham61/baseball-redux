@@ -1,3 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600&display=swap');
+
 .chat-section{
-    
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.chat-menu{
+    width: 75px;
+}
+
+.chat-groups{
+    width: 400px;
+    transition: .2s;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    @media screen and (max-width: 1000px) {
+        width: 200px;
+    }
+    .chat-date{
+        min-height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 2em;
+        font-family: 'Signika Negative', sans-serif;
+    }
+    .chat-search-section{
+        min-height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+        .chat-search-bar{
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            border-style: none;
+            background-color: rgb(237, 237, 237);
+            padding-left: 20px;
+        }
+    }
+    .chat-room{
+        min-height: 75px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border-radius: 5px;
+        transition: .2s;
+        .team{
+            text-align: center;
+            width: 100px;
+            .chat-room-logo{
+                width: 40px;
+            }
+        }
+        &:hover{
+            background-color: rgb(247, 247, 247);
+
+        }
+        .score{
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        .inning{
+            text-align: center;
+            min-width: 72px;
+        }
+    }
+    .active{
+        background-color: rgb(237, 237, 237);
+    }
+    .concluded{
+
+    }
+    .live{
+
+    }
 }

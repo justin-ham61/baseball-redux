@@ -36,7 +36,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <input className={searchField.length === 0 ? 'empty' : 'filled'} type="text" onChange={handleChange} value={searchField} placeholder="Search for Players"/>
+      <input className={searchField.length === 0 ? 'search-bar empty' : 'search-bar filled'} type="text" onChange={handleChange} value={searchField} placeholder="Search for Players"/>
       <SearchSuggestion filteredList={filteredList} setSearchField={setSearchField}/>
     </>
   )
