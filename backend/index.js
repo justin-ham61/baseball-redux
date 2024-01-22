@@ -4,6 +4,7 @@ const cors = require('cors')
 const connectDB = require('./database/database')
 const server = require('http').createServer(app)
 const chatMessageModel = require('./database/Chat/chatSchema')
+const path = require('node:path')
 
 //middleware
 app.use(express.json())
@@ -19,9 +20,14 @@ const chatRouter = require('./routes/chat')
 app.use('/users', userRouter)
 app.use('/chat', chatRouter)
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, './dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
 })
+
 
 const PORT = process.env.PORT || 3001
 server.listen(PORT, () => {
@@ -29,9 +35,15 @@ server.listen(PORT, () => {
 })
 
 //socket
-const io = require('socket.io')(server,{
+/* const io = require('socket.io')(server,{
   cors:{
     origin: 'https://baseball-redux-backend-1db26d31a3ab.herokuapp.com/',
+    method: ['GET', 'POST']
+  }
+}) */
+const io = require('socket.io')(server,{
+  cors:{
+    origin: 'http://localhost:5173',
     method: ['GET', 'POST']
   }
 })

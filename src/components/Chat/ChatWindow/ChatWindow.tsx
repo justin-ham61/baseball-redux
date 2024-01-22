@@ -30,7 +30,7 @@ const ChatWindow = ({roomId, selectedRoom}: Props) => {
   const maxLength: number = 100
   const currentUser = 'Justin'
   useEffect(() => {
-    const newSocket = io()
+    const newSocket = io('http://localhost:3001')
 
     setSocket(newSocket)
 
