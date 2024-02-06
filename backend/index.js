@@ -47,7 +47,10 @@ server.listen(PORT, () => {
     method: ['GET', 'POST']
   }
 }) */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5e44cdf47a3dbe39a5d56368fbc76e03f7f5e602
 const io = require('socket.io')(server,{
   cors:{
     origin: 'http://localhost:5173',
