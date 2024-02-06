@@ -55,6 +55,7 @@ const Login = ( {onClick}: Props ) => {
       alert('Please complete reCAPTCHA')
       return
     }
+    
     try{
       dispatch(setLoading(true))
       const result:LoginReturnData = await loginUser(form)

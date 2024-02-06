@@ -10,6 +10,7 @@ export interface State {
         favoritePlayers: number[],
         id: string,
         logged: boolean, 
-        name: string
+        name: string,
+        team: string
     }
 }

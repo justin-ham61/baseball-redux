@@ -40,6 +40,7 @@ const ChartHeader = ( {season, currentPlayer}:Props ) => {
   return (
     <div className='chart-header'>
       <div className='left-header'>
+        <img className='header-head' src={`https://content.mlb.com/images/headshots/current/60x60/${currentPlayer.playerId}@2x.png`} alt='logo' />
         <div>
           <h2>{currentPlayer.fullName}</h2>
           <p>{season} Season</p>

@@ -3,7 +3,8 @@ import axios from 'axios'
 interface newUserData {
     email:string,
     name:string,
-    password:string
+    password:string,
+    team: string
 }
 
 interface loginData{
@@ -15,7 +16,8 @@ interface LoginReturnData{
   logged: boolean,
   email:string,
   name:string,
-  id:string
+  id:string,
+  team: string
 }
 
 interface UserPayload{
@@ -23,13 +25,14 @@ interface UserPayload{
   name: string,
   email: string,
   id: string,
-  favoritePlayers: number[]
+  favoritePlayers: number[],
+  team: string
 }
 
 export const registerNewUser = async  (data: newUserData) => {
   return new Promise((resolve, reject) => {
     try{
-      axios.post('/users/add', data)
+      axios.post('http://localhost:3001/users/add', data)
         .then(result=> {
           console.log(result.data)
           alert('Successfully Registered')
@@ -49,23 +52,18 @@ export const registerNewUser = async  (data: newUserData) => {
 export const loginUser = async (data: loginData):Promise<LoginReturnData> => {
   return new Promise((resolve, reject) => {
     try{
-      axios.post('/users/login', data)
+      axios.post('http://localhost:3001/users/login', data)
         .then(result => {
           const token = result.data.token
-          const user = {
-            email: result.data.email,
-            name: result.data.name,
-            id: result.data.id
-          }
           localStorage.setItem('token', token) // token received from server
-          localStorage.setItem('userInfo', JSON.stringify(user)) // user information as an object
 
           const userState:UserPayload = {
             logged: true,
             email: result.data.email,
             name: result.data.name, 
             id: result.data.id,
-            favoritePlayers: []
+            favoritePlayers: [],
+            team: result.data.team
           }
           resolve(userState)
         })
@@ -81,13 +79,15 @@ export const loginUser = async (data: loginData):Promise<LoginReturnData> => {
 
 export const loginUserWithToken = async (token:string):Promise<UserPayload | null>=> {
   try{
-    const result = await axios.post('/users/authtoken', {token})
+    const result = await axios.post('http://localhost:3001/users/authtoken', {token})
+    console.log(result)
     const user:UserPayload = {
       logged: true,
       name: result.data.name,
       id: result.data.id,
       email: result.data.email,
-      favoritePlayers: []
+      favoritePlayers: [],
+      team: result.data.team
     }
     return user
   } catch (error){
@@ -97,7 +97,8 @@ export const loginUserWithToken = async (token:string):Promise<UserPayload | nul
       name: '',
       id: '',
       email:'',
-      favoritePlayers:[]
+      favoritePlayers:[],
+      team: ''
     })
   }
 }
@@ -110,7 +111,8 @@ export const signOutUser = () => {
     name: '',
     id: '',
     email: '',
-    favoritePlayers: []
+    favoritePlayers: [],
+    team: ''
   }
   return user
 }

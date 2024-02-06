@@ -1,24 +1,79 @@
 .chat-window{
-    flex: 1 0 auto;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: relative;
     .chat-window-header{
+        .header-vs{
+            margin-left: .5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            svg{
+                margin-left: 10px;
+                height: 30px;
+                color: rgb(0, 0, 67);
+                cursor: pointer;
+            }
+        }
         height: 75px;
         min-height: 75px;
         width: 100%;
         display: flex;
         align-items: center;
-        h1{
-            margin-left: 30px;
+        box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.33);
+    }
+    .current-players{
+        box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.33);
+        width: 100%;
+        min-height: 100px;
+        gap: 30px;
+        justify-content: flex-start;
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        box-sizing: border-box;
+        padding: 0px .5em;
+
+        .player-card{
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            .player-img{
+                background: radial-gradient(circle at 50% 50%, #ffffff, #c5c5c5);
+                height: 75px;
+                width: 75px;
+                border-radius: 1000px;
+
+            }
+            .player-description{
+                .player-status{
+                    font-size: .8em;
+                    color: gray;
+                }
+                .live-player-info{
+                    font-size: .9em;
+                    
+                }
+            }
         }
     }
 
     .chat-message-section{
+        width: 100%;
         box-sizing: border-box;
         padding: 1em;
         flex-grow: 1;
         display: flex;
-        gap: 5px;
+        gap: 10px;
         flex-direction: column;
         overflow-y: auto;
         overflow-x: hidden;
@@ -31,16 +86,26 @@
             flex-direction: column;
             align-items: start;
             gap: 3px;
-            .message-user{
-                font-weight: 600;
+            .message-user-info{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                .message-user-name{
+                    font-weight: 600;
+                    margin-left: 10px;
+                }
+                .message-user-team{
+                    height: 25px;
+                }
             }
 
             .message-bubble{
-                background-color: rgb(239, 239, 239);
                 box-sizing: border-box;
                 padding: 8px 12px;
-                border-radius: 50px;
-
+                border-radius: 15px;
+                max-width: 300px;
+                background-color: rgb(239, 239, 239);
+                overflow-wrap: break-word;
             }
         }
     }
@@ -83,4 +148,18 @@
             }
         }
     }
+}
+
+.error-message{
+    position: absolute;
+    background-color: rgb(233, 233, 233);
+    color: white;
+    max-width: 300px;
+    top: 100px;
+    box-sizing: border-box;
+    padding: 1em;
+    border-radius: 10px;
+    color: darkred;
+    text-align: center;
+    box-shadow: 0px 0px 4px rgb(162, 162, 162);
 }

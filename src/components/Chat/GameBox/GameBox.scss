@@ -1,0 +1,100 @@
+.gamebox-section{
+    width: 400px;
+    border-left: solid 1px lightgray;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: .5em;
+    z-index: 3;
+    overflow-y: auto;
+
+}
+
+.table-type-section{
+    width: 100%;
+    min-height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-collapse: collapse;
+    .table-type{
+        width: 100%;
+        height: 100%;
+        border: solid 1px gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:last-child{
+            border-left: none;
+        }
+        &:hover{
+            background-color: rgb(232, 232, 232);
+        }
+    }
+    .active{
+        background-color: rgb(232, 232, 232);
+    }
+}
+
+.team-selection-section{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: underline;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.line-up-section{
+    width: 100%;
+    .line-up-table{
+        margin-bottom: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        .table-header{
+            text-align: left;
+        }
+        th{
+            font-size: .8em;
+            font-weight: 500;
+        }
+        td{
+            font-size: .7em;
+        }
+        tr{
+            height: 30px;
+            border-bottom: solid 1px lightgray;
+            text-align: center;
+        }
+    }
+}
+
+
+.scoring{
+    font-weight: 700;
+}
+.play-inning{
+    font-size: 1.3em;
+}
+
+.away{
+    color: red;
+    margin-top: 20px;
+}
+.home{
+    color: green;
+}   
+
+.play-list{
+    list-style: none;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .score{
+        font-size: 1.2em;
+        color: green;
+    }
+}

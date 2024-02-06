@@ -6,14 +6,18 @@ interface UserPayLoad {
     logged: boolean
     name: string,
     email: string,
+    favoritePlayers: number[]
     id: string,
+    team: string
 }
 
 const initialState:UserPayLoad = {
   logged: false,
   name: '',
   email: '',
+  favoritePlayers: [],
   id: '',
+  team: ''
 }
 
 const userSlice = createSlice({

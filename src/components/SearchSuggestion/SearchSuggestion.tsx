@@ -23,15 +23,17 @@ const SearchSuggestion = ({setSearchField, filteredList}:Props) => {
     switch(category){
     case 'single': 
       dispatch(setChoice(item))
+      setSearchField('')
+      navigate(`/Chart/${item.playerId}`)
       break
     case 'compare':
       dispatch(addChoice(item))
+      setSearchField('')
+      navigate('/Chart/1')
       break
     case 'favorite':
       break
     }
-    setSearchField('')
-    navigate('/Chart')
   }
   
   return (

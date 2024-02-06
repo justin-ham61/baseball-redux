@@ -59,7 +59,7 @@ const ChartMenu = ({setSelectedTeam, showFavoriteState, setAuthType}: Props) => 
     <>
       <AnimatePresence>
         <motion.div key={showMobileMenu} className={!showMobileMenu ? 'chart-menu' : 'chart-menu show'}
-          initial={{y: -1000}}
+          initial={showMobileMenu ? {y: -1000} : {y: 0}}
           animate={{ y: 0}}
           exit={{y: -1000}}
           transition={{
@@ -256,6 +256,7 @@ const ChartMenu = ({setSelectedTeam, showFavoriteState, setAuthType}: Props) => 
 
           </div>
           <div className='chart-menu-account'>
+            <div className='chart-menu-account-item' onClick={() => navigate('/Chat/1')}>Game Chat</div>
             <div className='chart-menu-account-item'>Favorite Team</div>
             <div className='chart-menu-account-item' onClick={() => showFavoriteState.setShowFavoritePlayer(true)}>Favorite Players</div>
             {user.logged ? 
@@ -268,6 +269,7 @@ const ChartMenu = ({setSelectedTeam, showFavoriteState, setAuthType}: Props) => 
           </div>
         </motion.div>
       </AnimatePresence>
+
       <div className={showMobileMenu ? 'mobile-menu-collapsed bottom' : 'mobile-menu-collapsed top'} onClick={() => setShowMobileMenu(showMobileMenu === 0 ? 1 : 0)}>
 
         Menu

@@ -6,21 +6,60 @@ import { buildComparePlayerDataset } from '../../util/charts'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
  
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  TimeScale,
+  Tooltip,
+  Legend,
+  LineController
+} from 'chart.js'
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  TimeScale,
+  Title,
+  Tooltip,
+  Legend,
+  LineController
+)
+
 import { defaultSeason } from '../../util/constants'
 import { State } from '../../type/stateType'
 import * as React from 'react'
-
+interface DataPoint{
+  x: string,
+  y: string
+}
 const ComparePlayersChart = () => {
   const player = useSelector((state:State) => state.choice)
   const [category, setCategory] = useState('avg')
   const [chartData, setChartData] = useState<any>(null)
   const [season, setSeason] = useState(defaultSeason)
   const [error, setError] = useState<boolean>(false)
+  const [ min, setMin ] = useState('')
+  const [ max, setMax ] = useState('')
+  const [ filteredMin, setFilteredMin ] = useState<DataPoint[]>([])
+  const [ filteredMax, setFilteredMax ] = useState<DataPoint[]>([])
+
   const options:any = {
     scales: {
       x: {
-        type: 'category',
-        position: 'bottom'
+        type: 'time',
+        position: 'bottom',
+        time: {
+          unit: 'day'
+        },
+        min: min,
+        max: max
       },
       y: {
         beginAtZero: true,
@@ -70,8 +109,34 @@ const ComparePlayersChart = () => {
       }
     }
   },[player, category, season])
-  
 
+  useEffect(() => {
+    setFilteredMin([])
+  },[season])
+
+  useEffect(() => {
+    if(chartData) {
+      if(chartData.datasets.length > 0 ){
+        if(filteredMin === null || chartData.datasets[0].data.length > filteredMin.length){
+          setMin(chartData.datasets[0].data[0].x)
+          setMax(chartData.datasets[0].data[chartData.datasets[0].data.length - 1].x)
+          setFilteredMin(chartData.datasets[0].data)
+          setFilteredMax(chartData.datasets[0].data)
+          console.log(chartData)
+        }
+      }
+    }
+  },[chartData, filteredMin])
+
+  useEffect(() => {
+    if(chartData !== null){
+      const minOptions = chartData.datasets[0].data.filter((label: DataPoint) => label.x < max)
+      setFilteredMin(minOptions)
+      // Filter options for the second select based on min
+      const maxOptions = chartData.datasets[0].data.filter((label: DataPoint) => label.x > min)
+      setFilteredMax(maxOptions)
+    }
+  },[min, max, chartData])
 
   const handleRadioClick = (e:React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value)
@@ -80,6 +145,13 @@ const ComparePlayersChart = () => {
 
   const handleChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
     setSeason(e.target.value)
+  }
+  const changeMaxValue = (e:React.ChangeEvent<HTMLSelectElement>) => {
+    setMax(e.target.value)
+  }
+
+  const changeMinValue = (e:React.ChangeEvent<HTMLSelectElement>) => {
+    setMin(e.target.value)
   }
 
   if (player.length === 0) {
@@ -92,7 +164,7 @@ const ComparePlayersChart = () => {
 
   
     return (
-      <div >
+      <div className='compare-chart'>
         <div className='chart-header-compare'>
           <div>
             <h2>Player Comparison for {season} Regular Season</h2>
@@ -135,8 +207,29 @@ const ComparePlayersChart = () => {
         </div>
 
         {chartData !== null && !error ? 
-
-          <Line data={chartData} options={options}/>
+          <>
+            <Line data={chartData} options={options}/>
+            <div className='date-selector-box'>
+              {chartData !== null && filteredMin && filteredMax &&
+                <>
+                  <select name="" id=""  value={min} onChange={changeMinValue}>
+                    {filteredMin.map((item, i: number) => {
+                      return(
+                        <option key={i} value={item.x}>{item.x}</option>
+                      )
+                    })}
+                  </select>
+                  <select name="" id=""  value={max} onChange={changeMaxValue}>
+                    {filteredMax.map((item, i: number) => {
+                      return(
+                        <option key={i} value={item.x}>{item.x}</option>
+                      )
+                    })}
+                  </select>
+                </>
+              }
+            </div>
+          </>
           :
           error ? 
             <div>

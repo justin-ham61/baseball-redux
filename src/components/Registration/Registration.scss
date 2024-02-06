@@ -22,6 +22,10 @@
         }
         width: 50%;
         border-radius: 10px;
+        height: 50px;
+        border: none;
+        background-color: rgb(238, 238, 238);
+        padding-left: 1em;
     }
     button{
         padding: 1em 3em;
@@ -39,5 +43,9 @@
     p{
         text-decoration: underline;
         cursor: pointer;
+    }
+    .favorite-team-selector{
+        width: 50%;
+        height: 50px;
     }
 }

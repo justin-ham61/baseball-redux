@@ -18,8 +18,22 @@
 
 .graph{
     width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     @media screen and (max-width: 768px) {
         height: 500px;
         position: relative;
+    }
+    .date-selector-box{
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+        }
+        display: flex;
+        gap: 10px;
+        select{
+            height: 50px;
+        }
+        margin-bottom: 25px;
     }
 }

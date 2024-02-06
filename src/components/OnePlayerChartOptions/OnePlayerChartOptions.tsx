@@ -16,7 +16,6 @@ interface Props{
 }
 
 const OnePlayerChartOptions = ({setSeason, currentPlayerCareerStats, season, chartOption, checkboxState}:Props) => {
-
   const [ collapsed, setCollapsed ] = useState(true)
   const [ optionHeight, setOptionHeight ] = useState<number>(0)
   const optionRef = useRef<HTMLDivElement>(null)
@@ -100,12 +99,13 @@ const OnePlayerChartOptions = ({setSeason, currentPlayerCareerStats, season, cha
                 }
               })}
             </select>
-            <table>
+            <table className='type-selector-table'>
               <tr className='type-selector'>
                 <td className={chartOption.chartOptionCategory === 'avg' ? 'type left active' : 'type left'} onClick={() => chartOption.setChartOptionCategory('avg')}>Average</td>
                 <td className={chartOption.chartOptionCategory === 'agg' ? 'type right active' : 'type right'} onClick={() => chartOption.setChartOptionCategory('agg')}>Aggregate</td>
               </tr>
             </table>
+
           </div>
           {chartOption.chartOptionCategory === 'agg' ? 
             <form action="" onChange={handleCheckboxChange} className='checkboxes'>

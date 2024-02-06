@@ -1,21 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+.chat-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .chat-menu-item{
+        width: 100%;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .2s;
+        .chat-menu-item-icon{
+            width: 30px;
+            height: 30px;
+        }
+        &:hover{
+            background-color: rgb(237, 237, 237);
+        }
+    }
+    .active{
+        background-color: rgb(237, 237, 237);
+    }
+}
 
 .chat-section{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
 }
 
 .chat-menu{
     width: 75px;
+    flex-shrink: 0;
 }
 
 .chat-groups{
-    width: 400px;
+    flex-shrink: 0;
+    width: 450px;
     transition: .2s;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    box-sizing: border-box;
+    padding: 0 .5em;
+    overflow-x: hidden;
     @media screen and (max-width: 1000px) {
         width: 200px;
     }
@@ -26,7 +59,7 @@
         justify-content: center;
         font-weight: 900;
         font-size: 2em;
-        font-family: 'Signika Negative', sans-serif;
+        font-family: 'Lato', sans-serif;
     }
     .chat-search-section{
         min-height: 50px;
@@ -43,16 +76,14 @@
         }
     }
     .chat-room{
-        min-height: 75px;
+        min-height: 90px;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
         transition: .2s;
-        border-bottom: solid;
-        border-width: 1px;
-        border-color: lightgray;
+        border-radius: 10px;
         box-sizing: border-box;
         padding: 0 .5em;
         .team{
@@ -64,7 +95,6 @@
         }
         &:hover{
             background-color: rgb(247, 247, 247);
-
         }
         .score{
             font-size: 1.5em;
@@ -76,12 +106,13 @@
         }
     }
     .active{
-        background-color: rgb(237, 237, 237);
+        background-color: rgb(231, 231, 231);
     }
-    .concluded{
+}
 
-    }
-    .live{
-
-    }
+.no-room-selected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
 }

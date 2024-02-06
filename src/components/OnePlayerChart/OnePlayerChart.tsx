@@ -22,13 +22,14 @@ interface Type{
 }
 
 const OnePlayerChart = () => {
+  
   const currentPlayer = useSelector((state: State) => state.choice)
   const [ currentPlayerCareerStats, setCurrentPlayerCareerStats ] = useState([])
   const [ chartOptionCategory, setChartOptionCategory ] = useState('avg')
   const [ season, setSeason ] = useState<string>(defaultSeason)
   const [ checkbox, setCheckbox ] = useState<string[]>(['hits'])
   const [ statType, setStatType ] = useState<string>('hitting')
-  const [involvedGameType, setInvolvedGameType] = useState<string[]>([])
+  const [ involvedGameType, setInvolvedGameType ] = useState<string[]>([])
   const [ seasonType, setSeasonType ] = useState<string>('R')
   const [error, setError] = useState<boolean>(false)
 
@@ -88,7 +89,6 @@ const OnePlayerChart = () => {
     const totalArray = ['P']
     splitArray.map((split: { gameType: string; season: string }) => {
       if(type[split.gameType as keyof Type] !== null){
-        console.log(playerSplits[split.season] + 'HELLOOOOOO')
         if(playerSplits[split.season] === undefined){
           playerSplits[split.season] = [split.gameType]
         } else {

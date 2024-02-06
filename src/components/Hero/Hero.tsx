@@ -71,7 +71,7 @@ const Hero = () => {
           <>
             <div className='background'></div>
             <div className='filter'></div>
-            <h1>MLB PLAYER CHART</h1>
+            <h1>THE DUGOUT</h1>
             <div className='hero-search-container'>
               <SearchBar/>
             </div>

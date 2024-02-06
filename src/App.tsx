@@ -21,7 +21,7 @@ function App() {
     queryKey:['favoritePlayers'],
     queryFn: getFavoritePlayerCall
   })
-
+  
   useEffect(() => {
     dispatch(initializePlayers())
     const token = localStorage.getItem('token')
@@ -35,24 +35,14 @@ function App() {
     dispatch(setFavoritePlayer(favoritePlayerResult.data))
   },[favoritePlayerResult, dispatch])
 
-  /*   useEffect(() => {
-    const socket = io('http://localhost:3001')
-    socket.on('connection', () => {
-      console.log('Connected to the socket.io server')
-    })
-    socket.emit('chat message', 'this is a test message')
-    console.log('emmited mesage')
-  },[]) */
-
-
 
   return (
     <> 
       <Router>
         <Routes>
           <Route path='/' element={ <Hero/>} />
-          <Route path='/Chart' element={ <Chart/> } />
-          <Route path='/Chat' element= {<ChatHero/>}/>
+          <Route path='/Chart/:playerIdParam' element={ <Chart/> } />
+          <Route path='/Chat/:roomIdParam' element= {<ChatHero/>}/>
         </Routes>
       </Router>
     </>

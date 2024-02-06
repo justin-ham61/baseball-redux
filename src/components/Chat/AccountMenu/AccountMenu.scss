@@ -1,0 +1,102 @@
+.account-menu-section{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .account-menu-box{
+        min-width: 300px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px rgb(100, 100, 100);
+        background-color: white;
+        box-sizing: border-box;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        .account-menu-header{
+            overflow: hidden;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .account-menu-heading{
+                font-size: 2em;
+            }
+        }
+        .account-menu-detail{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            .account-menu-item{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                position: relative;
+                label{
+                    font-size: 1.5em;
+                    font-weight: 700;
+                    color: darkslateblue;
+                }
+                p{
+                    height: 30px;
+                    font-size: 1.3em;
+                    img{
+                        height: 30px;
+                    }
+                }
+                input{
+                    width: 200px;
+                    height: 30px;
+                    border-radius: 15px;
+                    border: none;
+                    background-color: rgb(230,230,230);
+                    padding: 1em;
+                }
+                button{
+                    height: 30px;
+                    background-color: rgb(0, 110, 255);
+                    border: solid 2px rgb(0, 110, 255);
+                    color: white;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    transition: .2s;
+                    &:hover{
+                        background-color: white;
+                        color: rgb(0, 110, 255);
+                    }
+
+                }
+                div{
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .edit-button{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.delete-account-button{
+    padding: 10px;
+    border: solid red 2px;
+    background-color: white;
+    color: red;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: .2s;
+    cursor: pointer;
+    &:hover{
+        background-color: red;
+        color: white;
+    }
+}

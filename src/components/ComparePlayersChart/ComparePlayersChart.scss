@@ -8,3 +8,16 @@
         align-items: flex-end;
     }
 }
+
+.compare-chart{
+    .date-selector-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        select{
+            height: 50px;
+        }
+
+    }
+}

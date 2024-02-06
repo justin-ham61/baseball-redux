@@ -26,6 +26,7 @@
     "@types/socket.io-client": "^3.0.0",
     "axios": "^1.6.2",
     "chart.js": "^4.4.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-adapter-moment": "^1.0.1",
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.16.16",
