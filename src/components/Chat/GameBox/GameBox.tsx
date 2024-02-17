@@ -3,13 +3,16 @@
 import { useEffect, useState } from 'react'
 import './GameBox.scss'
 import Plays from '../Plays/Plays'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface Props {
     selectedRoom: any,
     gameData: any
+    setShowBoxScoreMobile: React.Dispatch<React.SetStateAction<'flex' | 'none'>>,
+    showBoxScoreMobile: 'flex' | 'none'
 }
 
-const GameBox = ({selectedRoom, gameData}: Props) => {
+const GameBox = ({selectedRoom, gameData, showBoxScoreMobile, setShowBoxScoreMobile}: Props) => {
   const [ totals, setTotalBattingBox ] = useState<any|null>(null)
   const [ teamSelection, setTeamSelection ] = useState('home')
   const [ category, setCategory ] = useState('box')
@@ -58,12 +61,20 @@ const GameBox = ({selectedRoom, gameData}: Props) => {
   }
 
   return (
-    <div className='gamebox-section'>
-      <div className="table-type-section">
-        <div className={`table-type ${category === 'box' && 'active'}`} onClick={() => setCategory('box')}>BOX</div>
-        <div className={`table-type ${category === 'plays' && 'active'}`} onClick={() => setCategory('plays')}>PLAYS</div>
-      </div>
-      {category === 'box' &&
+    <AnimatePresence>
+      <motion.div className='gamebox-section' style={{display: showBoxScoreMobile}}
+        initial={{x: 400, opacity:0}}
+        animate={{x: 0, opacity: 1}}
+        exit={{x: 400, opacity: 0}}
+        transition={{duration: .2}}
+        key={showBoxScoreMobile}
+      >
+        <button className='mobile-hide-button' onClick={() => setShowBoxScoreMobile('none')}>RETURN</button>
+        <div className="table-type-section">
+          <div className={`table-type ${category === 'box' && 'active'}`} onClick={() => setCategory('box')}>BOX</div>
+          <div className={`table-type ${category === 'plays' && 'active'}`} onClick={() => setCategory('plays')}>PLAYS</div>
+        </div>
+        {category === 'box' &&
       <>
         <div className="team-selection-section">
           <div onClick={() => setTeamSelection('home')}>{selectedRoom.teams.home.team.teamName}</div>
@@ -149,11 +160,12 @@ const GameBox = ({selectedRoom, gameData}: Props) => {
           }
         </div>
       </>
-      }
-      {category === 'plays' &&
+        }
+        {category === 'plays' &&
         <Plays gameData={gameData}/>
-      }
-    </div>
+        }
+      </motion.div>
+    </AnimatePresence>
   )
 }
 

@@ -5,13 +5,38 @@
     align-items: center;
     justify-content: start;
     position: relative;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    .mobile-chat-window-header{
+        @media screen and (max-width: 1000px) {
+            display: flex;
+        }
+        display: none;
+        height: 75px;
+        box-sizing: border-box;
+        padding: 0px 20px;
+        gap: 30px;
+        align-items: center;
+        .header-img{
+            width: 50px;
+            height: 50px;
+        }
+        svg{
+            height: 30px;
+        }
+    }
     .chat-window-header{
+        @media screen and (max-width: 1000px) {
+            display: none;
+        }
         .header-vs{
             margin-left: .5em;
             display: flex;
             align-items: center;
             gap: 10px;
-            img{
+            .header-img{
                 width: 50px;
                 height: 50px;
             }
@@ -28,8 +53,18 @@
         display: flex;
         align-items: center;
         box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.33);
+        justify-content: space-between;
+        svg{
+            margin-right: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
     }
     .current-players{
+        @media screen and (max-width: 1000px) {
+            display: none;
+            
+        }
         box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.33);
         width: 100%;
         min-height: 100px;
@@ -96,6 +131,10 @@
                 }
                 .message-user-team{
                     height: 25px;
+                }
+                .message-time{
+                    font-size: 12px;
+                    color: gray;
                 }
             }
 

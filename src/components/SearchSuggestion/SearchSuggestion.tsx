@@ -22,6 +22,7 @@ const SearchSuggestion = ({setSearchField, filteredList}:Props) => {
     console.log('clocked')
     switch(category){
     case 'single': 
+      console.log(item)
       dispatch(setChoice(item))
       setSearchField('')
       navigate(`/Chart/${item.playerId}`)

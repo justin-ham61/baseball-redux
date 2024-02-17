@@ -2,7 +2,7 @@ const axios = require('axios')
 const chatroomModel = require('../database/Chat/chatroomSchema')
 var todaysRooms = null
 
-const gamedate = '2024-04-01'
+const gamedate = process.env.GAMEDATE
 
 const fetchChatRooms = async () => {
   try {

@@ -18,6 +18,7 @@ import { getSavedRoomCall } from '../../../util/query'
 const ChatHero = () => {
   const { roomIdParam } = useParams()
   const navigate = useNavigate()
+  const [ showBoxScoreMobile, setShowBoxScoreMobile ] = useState<'none' | 'flex'>('none')
   const [ gameDate, setGameDate ] = useState<string>('')
   const [ roomCategory, setRoomCategory ] = useState<'games' | 'groups' | 'account' | 'saved'>('games')
   const [ selectedRoom, setSelectedRoom ] = useState<any>(null)
@@ -56,7 +57,7 @@ const ChatHero = () => {
 
 
   useEffect(():void => {
-    axios.get('http://localhost:3001/chat/chatrooms')
+    axios.get('/chat/chatrooms')
       .then(response => {
         console.log(response.data)
         setGamesForDay(response.data.data)
@@ -140,41 +141,62 @@ const ChatHero = () => {
         </div>
       </div>
       {roomCategory === 'games' && 
-        <div className="chat-groups">
-          <div className='chat-date'>
-            <p>{gameDate}</p>
+        <>
+          <div className="chat-groups">
+            <div className='chat-date'>
+              <p>{gameDate}</p>
+            </div>
+            <div className='chat-search-section'>
+              <input placeholder='Search for games today' className='chat-search-bar' type="text" value={searchQuery} maxLength={10} onChange={handleChange}/>
+            </div>
+            <AnimatePresence >
+              {filteredGames.map((game:any, i) => {
+                return(
+                  <motion.div key={i} className={`chat-room ${selectedRoom && selectedRoom.gamePk === game.gamePk && 'active'} ${game.status.statusCode === 'F' || game.status.statusCode === 'P' ? 'concluded' : 'live'}`} onClick={() => handleRoomChange(game)}
+                    initial={{ opacity: 0, x: 30}}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 30 }}
+                    whileHover={{y: -10}}
+                    transition={{ }}
+                  >
+                    <div className='team'>
+                      <img className='chat-room-logo' src={logoObject[game.teams.home.team.id as keyof unknown]} alt="" />
+                      <p>{game.teams.home.team.teamName}</p>
+                    </div>
+                    <div>
+                      <p className='score'>{game.linescore.teams.home.runs ? game.linescore.teams.home.runs : 0} : {game.linescore.teams.away.runs ? game.linescore.teams.away.runs : 0}</p>
+                    </div>
+                    <div className='team'>
+                      <img className='chat-room-logo' src={logoObject[game.teams.away.team.id as keyof unknown]} alt="" />
+                      <p>{game.teams.away.team.teamName}</p>
+                    </div>
+                    {game.linescore.currentInning ? <p className='inning'>{game.linescore.currentInning}</p> : <p className='inning'>{convertToPST(game.gameDate)}</p>}
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
           </div>
-          <div className='chat-search-section'>
-            <input placeholder='Search for games today' className='chat-search-bar' type="text" value={searchQuery} maxLength={10} onChange={handleChange}/>
-          </div>
-          <AnimatePresence >
-            {filteredGames.map((game:any, i) => {
-              return(
-                <motion.div key={i} className={`chat-room ${selectedRoom && selectedRoom.gamePk === game.gamePk && 'active'} ${game.status.statusCode === 'F' || game.status.statusCode === 'P' ? 'concluded' : 'live'}`} onClick={() => handleRoomChange(game)}
-                  initial={{ opacity: 0, x: 30}}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 30 }}
-                  whileHover={{y: -10}}
-                  transition={{ }}
-                >
-                  <div className='team'>
+          <div className='chat-groups-mobile'>
+            <AnimatePresence>
+              {filteredGames.map((game:any, i) => {
+                return (
+                  <motion.div className='matchup-circle' key={i} onClick={() => handleRoomChange(game)}
+                    initial={{ opacity: 0, x: 30}}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 30 }}
+                    whileHover={{y: -10}}
+                    transition={{ }}
+                  >
                     <img className='chat-room-logo' src={logoObject[game.teams.home.team.id as keyof unknown]} alt="" />
-                    <p>{game.teams.home.team.teamName}</p>
-                  </div>
-                  <div>
-                    <p className='score'>{game.linescore.teams.home.runs ? game.linescore.teams.home.runs : 0} : {game.linescore.teams.away.runs ? game.linescore.teams.away.runs : 0}</p>
-                  </div>
-                  <div className='team'>
                     <img className='chat-room-logo' src={logoObject[game.teams.away.team.id as keyof unknown]} alt="" />
-                    <p>{game.teams.away.team.teamName}</p>
-                  </div>
-                  {game.linescore.currentInning ? <p className='inning'>{game.linescore.currentInning}</p> : <p className='inning'>{convertToPST(game.gameDate)}</p>}
-                </motion.div>
-              )
-            })}
-          </AnimatePresence>
-        </div>
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
+          </div>
+        </>
       }
+
       {roomCategory === 'saved' && 
       <div className='chat-groups'>
         <div className='chat-date'>
@@ -193,8 +215,8 @@ const ChatHero = () => {
       </div>
       }
       {!selectedRoom && roomCategory === 'games' && <div className='no-room-selected'>Select a game to start talking!</div>}
-      {selectedRoom  && gameData && roomCategory === 'games' && <ChatWindow gameData={gameData} selectedRoom={selectedRoom} roomId={selectedRoom.gamePk} savedRooms={savedRooms} key={selectedRoom.gamePk}/>}
-      {selectedRoom && gameData && roomCategory === 'games'  && <GameBox gameData={gameData} selectedRoom={selectedRoom} key={selectedRoom.gamePk + 1}/>}
+      {selectedRoom  && gameData && roomCategory === 'games' && <ChatWindow showBoxScoreMobile={showBoxScoreMobile} setShowBoxScoreMobile={setShowBoxScoreMobile} gameData={gameData} selectedRoom={selectedRoom} roomId={selectedRoom.gamePk} savedRooms={savedRooms} key={selectedRoom.gamePk}/>}
+      {selectedRoom && gameData && roomCategory === 'games'  && <GameBox showBoxScoreMobile={showBoxScoreMobile} setShowBoxScoreMobile={setShowBoxScoreMobile} gameData={gameData} selectedRoom={selectedRoom} key={selectedRoom.gamePk + 1}/>}
       {roomCategory === 'groups' || roomCategory === 'saved' ? <div className='no-room-selected'>This feature is not yet available</div> : null}
 
     </div>

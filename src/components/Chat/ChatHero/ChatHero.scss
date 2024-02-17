@@ -15,9 +15,16 @@
         border-radius: 5px;
         cursor: pointer;
         transition: .2s;
+        @media screen and (max-width: 1000px) {
+            height: 50px;
+        }
         .chat-menu-item-icon{
             width: 30px;
             height: 30px;
+            @media screen and (max-width: 1000px) {
+                width: 20px;
+                height: 20px;
+            }
         }
         &:hover{
             background-color: rgb(237, 237, 237);
@@ -31,12 +38,50 @@
 .chat-section{
     width: 100vw;
     height: 100vh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     display: flex;
 }
 
 .chat-menu{
     width: 75px;
     flex-shrink: 0;
+    @media screen and (max-width: 1000px) {
+        width: 50px;
+    }
+}
+
+.chat-groups-mobile{
+    @media screen and (max-width: 1000px) {
+        display: flex;
+    }
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 75px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 5px;
+    gap: 5px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .matchup-circle{
+        min-height: 65px;
+        border-radius: 100px;
+        width: 65px;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: 30px;
+
+        }
+    }
 }
 
 .chat-groups{
@@ -51,6 +96,7 @@
     overflow-x: hidden;
     @media screen and (max-width: 1000px) {
         width: 200px;
+        display: none;
     }
     .chat-date{
         min-height: 75px;

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -8,6 +9,7 @@ const chatRoomModel = require('./database/Chat/chatroomSchema')
 const path = require('node:path')
 const { fetchChatRooms } = require('./util/variables')
 const isToxic = require('./util/chat')
+
 
 //middleware
 app.use(express.json())
@@ -41,22 +43,18 @@ server.listen(PORT, () => {
 })
 
 //socket
-/* const io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   cors:{
     origin: 'https://baseball-redux-backend-1db26d31a3ab.herokuapp.com/',
     method: ['GET', 'POST']
   }
-}) */
-<<<<<<< HEAD
-
-=======
->>>>>>> 5e44cdf47a3dbe39a5d56368fbc76e03f7f5e602
-const io = require('socket.io')(server,{
+})
+/* const io = require('socket.io')(server,{
   cors:{
     origin: 'http://localhost:5173',
     method: ['GET', 'POST']
   }
-})
+}) */
 
 const rateLimits = {
   'chat message': { max: 5, windowMs: 60000 }, // 10 messages per minute

@@ -6,9 +6,10 @@ export interface PlayerBase{
     height: string,
     position: Position,
     weight: number,
-    birth: string
-    teamId: number
-    pNumber: number
+    birth: string,
+    teamId: number,
+    pNumber: number,
+    searchValue: string
 }
 
 interface Position{

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const password = 'Blue452477614524.'
+const password = process.env.DATABASE_PASSWORD
 const url = `mongodb+srv://jiheonham61:${password}@cluster0.oz2xxus.mongodb.net/?retryWrites=true&w=majority`
 
 const connectDB = async () => {

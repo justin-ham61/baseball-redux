@@ -136,7 +136,8 @@ const ComparePlayersChart = () => {
       const maxOptions = chartData.datasets[0].data.filter((label: DataPoint) => label.x > min)
       setFilteredMax(maxOptions)
     }
-  },[min, max, chartData])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[min, max])
 
   const handleRadioClick = (e:React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value)

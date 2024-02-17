@@ -32,7 +32,7 @@ interface UserPayload{
 export const registerNewUser = async  (data: newUserData) => {
   return new Promise((resolve, reject) => {
     try{
-      axios.post('http://localhost:3001/users/add', data)
+      axios.post('/users/add', data)
         .then(result=> {
           console.log(result.data)
           alert('Successfully Registered')
@@ -52,7 +52,7 @@ export const registerNewUser = async  (data: newUserData) => {
 export const loginUser = async (data: loginData):Promise<LoginReturnData> => {
   return new Promise((resolve, reject) => {
     try{
-      axios.post('http://localhost:3001/users/login', data)
+      axios.post('/users/login', data)
         .then(result => {
           const token = result.data.token
           localStorage.setItem('token', token) // token received from server
@@ -79,7 +79,7 @@ export const loginUser = async (data: loginData):Promise<LoginReturnData> => {
 
 export const loginUserWithToken = async (token:string):Promise<UserPayload | null>=> {
   try{
-    const result = await axios.post('http://localhost:3001/users/authtoken', {token})
+    const result = await axios.post('/users/authtoken', {token})
     console.log(result)
     const user:UserPayload = {
       logged: true,

@@ -3,7 +3,7 @@ const Player = require('../database/Player/playerSchema')
 const SavedRoom = require('../database/Chat/chatroomSave')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+const jwtSecretKey = process.env.JWTSECRET
 
 const userMethods = {
   add: async function(data){
@@ -52,12 +52,12 @@ const userMethods = {
       team: user.team
     }
 
-    const token = jwt.sign(userForToken, 'secretkey', { expiresIn: 3600*24 })
+    const token = jwt.sign(userForToken, jwtSecretKey, { expiresIn: 3600*24 })
     return token
   },
   authenticateToken: async function(token){
     try{
-      const decodedToken = jwt.verify(token, 'secretkey')
+      const decodedToken = jwt.verify(token, jwtSecretKey)
       return decodedToken
     } catch (error){
       if(error.name === 'JsonWebTokenError'){
@@ -147,7 +147,7 @@ const userMethods = {
       team: updatedUser.team
     }
 
-    const newToken = jwt.sign(userForToken, 'secretkey',{expiresIn: 3600*24})
+    const newToken = jwt.sign(userForToken, jwtSecretKey,{expiresIn: 3600*24})
     userForToken.token = newToken
     return userForToken
   },
@@ -168,7 +168,7 @@ const userMethods = {
       team: updatedUser.team
     }
 
-    const newToken = jwt.sign(userForToken, 'secretkey',{expiresIn: 3600*24})
+    const newToken = jwt.sign(userForToken, jwtSecretKey,{expiresIn: 3600*24})
     userForToken.token = newToken
     return userForToken
   },

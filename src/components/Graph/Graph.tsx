@@ -50,7 +50,7 @@ const Graph = ({season, currentPlayerId, chartOption, checkbox}:Props) => {
   const options:any = {
     scales: {
       x: {
-        type: 'timeseries',
+        type: 'time',
         time: {
           unit: 'day'
         },

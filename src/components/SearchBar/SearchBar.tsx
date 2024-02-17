@@ -15,7 +15,7 @@ const SearchBar = () => {
   useEffect(() => {
     if(searchField.length >= 1){
       const filter = players.filter((player:PlayerBase) => {  
-        return player.fullName.toLowerCase().includes(searchField.toLowerCase())
+        return player.searchValue.toLowerCase().includes(searchField.toLowerCase())
       })
       setFilteredList(filter)
     } else {
@@ -36,7 +36,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <input className={searchField.length === 0 ? 'search-bar empty' : 'search-bar filled'} type="text" onChange={handleChange} value={searchField} placeholder="Search for Players"/>
+      <input className={searchField.length === 0 ? 'search-bar empty' : 'search-bar filled'} type="text" onChange={handleChange} value={searchField} placeholder="Search by name, team, or position"/>
       <SearchSuggestion filteredList={filteredList} setSearchField={setSearchField}/>
     </>
   )

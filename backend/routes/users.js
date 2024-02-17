@@ -10,7 +10,7 @@ userRouter.get('/',(req, res) => {
 userRouter.post('/add', async (req, res) => {
   const { captcha, email} = req.body
   const captchaData ={
-    secret: '6LcJSSYpAAAAAMsATHSBXGNliwaAJmB-zqN_trGD',
+    secret: process.env.CAPTCHA_SECRET,
     response: captcha
   }
 
@@ -36,7 +36,7 @@ userRouter.post('/login', async (req, res) => {
   const {email, password, captcha} = req.body
 
   const captchaData = {
-    secret: '6LcJSSYpAAAAAMsATHSBXGNliwaAJmB-zqN_trGD',
+    secret: process.env.CAPTCHA_SECRET,
     response: captcha
   }
 

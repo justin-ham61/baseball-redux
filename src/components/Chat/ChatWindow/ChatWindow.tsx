@@ -14,6 +14,7 @@ import ChatError from './ChatError'
 import { AnimatePresence } from 'framer-motion'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addSavedRoomCall } from '../../../util/query'
+import { faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
 import { faBookmark as filledBookmark } from '@fortawesome/free-solid-svg-icons'
 import { faBookmark as emptyBookmark } from '@fortawesome/free-regular-svg-icons'
 import Loading from '../../Loading/Loading'
@@ -25,7 +26,9 @@ interface Props {
    
   selectedRoom: any,
   gameData: any,
-  savedRooms: string[]
+  savedRooms: string[],
+  setShowBoxScoreMobile: React.Dispatch<React.SetStateAction<'flex' | 'none'>>,
+  showBoxScoreMobile: 'flex' | 'none'
 }
 
 interface Message{
@@ -37,7 +40,7 @@ interface Message{
   userTeam: string
 }
 
-const ChatWindow = ({selectedRoom, gameData, savedRooms}: Props) => {
+const ChatWindow = ({selectedRoom, gameData, savedRooms, setShowBoxScoreMobile, showBoxScoreMobile}: Props) => {
   const queryClient = useQueryClient()
   const savedRoomQueryState = queryClient.getQueryState(['savedChats'])
   const navigate = useNavigate()
@@ -68,7 +71,7 @@ const ChatWindow = ({selectedRoom, gameData, savedRooms}: Props) => {
   }
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001')
+    const newSocket = io('/')
 
     setSocket(newSocket)
 
@@ -155,18 +158,32 @@ const ChatWindow = ({selectedRoom, gameData, savedRooms}: Props) => {
     navigate(`/Chart/${id}`)
   }
 
+  function formatTo12HrClock(isoDateString:Date) {
+    const date = new Date(isoDateString)
+    return new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    }).format(date)
+  }
+
   return (
     <div className='chat-window'>
       <AnimatePresence>
         <ChatError key={errorMessage} message={errorMessage}/>
       </AnimatePresence>
+      <div className='mobile-chat-window-header'>
+        <img className='header-img' src={logoObject[selectedRoom.teams.home.team.id as keyof unknown]} alt={selectedRoom.teams.home.team.name} />
+        <img className='header-img' src={logoObject[selectedRoom.teams.away.team.id as keyof unknown]} alt={selectedRoom.teams.away.team.name} />
+        <FontAwesomeIcon icon={faTableCellsLarge} onClick={() => setShowBoxScoreMobile('flex')}/>
+      </div>
       <div className="chat-window-header">
         <div className='header-vs'>
-          <img src={logoObject[selectedRoom.teams.home.team.id as keyof unknown]} alt={selectedRoom.teams.home.team.name} />
+          <img className='header-img' src={logoObject[selectedRoom.teams.home.team.id as keyof unknown]} alt={selectedRoom.teams.home.team.name} />
           <h1>{selectedRoom.teams.home.team.abbreviation}</h1>
           <h1> | </h1>
           <h1>{selectedRoom.teams.away.team.abbreviation}</h1>
-          <img src={logoObject[selectedRoom.teams.away.team.id as keyof unknown]} alt={selectedRoom.teams.away.team.name} />
+          <img className='header-img' src={logoObject[selectedRoom.teams.away.team.id as keyof unknown]} alt={selectedRoom.teams.away.team.name} />
           {newSavedRoom.isPending || savedRoomQueryState?.fetchStatus === 'fetching' ? <Loading/> : null}
           {!newSavedRoom.isPending && savedRoomQueryState?.fetchStatus !== 'fetching' && 
           (
@@ -175,6 +192,8 @@ const ChatWindow = ({selectedRoom, gameData, savedRooms}: Props) => {
               <FontAwesomeIcon icon={filledBookmark} onClick={handleBookmarkClick}/>
           )}
         </div>
+        <FontAwesomeIcon icon={faTableCellsLarge} onClick={() => {showBoxScoreMobile === 'flex' ? setShowBoxScoreMobile('none') : setShowBoxScoreMobile('flex')}}/>
+
       </div>
       {gameData.liveData.linescore.defense.pitcher && 
       <div className='current-players'>
@@ -216,6 +235,7 @@ const ChatWindow = ({selectedRoom, gameData, savedRooms}: Props) => {
               <div className='message-user-info'>
                 <p className='message-user-name'>{message.userId}</p>
                 <img className='message-user-team' src={logoObject[message.userTeam as keyof unknown]} alt="" />
+                <p className='message-time'>{formatTo12HrClock(message.timestamp)}</p>
               </div>
               <div className='message-bubble'>
                 <p className='message'>{message.message}</p>

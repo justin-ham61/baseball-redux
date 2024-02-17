@@ -37,8 +37,8 @@ const HeroNav = ({setAuthType}: Props) => {
   if (user !== null) {
     return (
       <div className="nav-bar">
-        <button onClick={() => navigate('/Chat/1')}>Chat</button>
-        <button onClick={() => navigate('/Chart/1')}>Chart</button>
+        <h3 onClick={() => navigate('/Chat/1')}>Chat</h3>
+        <h3 onClick={() => navigate('/Chart/1')}>Chart</h3>
         {!user.logged ? 
           <button onClick={handleClick} value='in'>Sign in</button>
           :
